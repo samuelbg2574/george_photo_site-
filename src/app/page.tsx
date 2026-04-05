@@ -1,45 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { brand } from "@/config/brand";
 
-// ─── Placeholder image component ───────────────────────────────────────────
-// Swap these out for real <Image> components once photography assets are ready
-function PhotoPlaceholder({
-  className,
-  label,
-  aspectRatio = "landscape",
-}: {
-  className?: string;
-  label?: string;
-  aspectRatio?: "landscape" | "portrait" | "square";
-}) {
-  const ar = {
-    landscape: "aspect-[4/3]",
-    portrait: "aspect-[3/4]",
-    square: "aspect-square",
-  }[aspectRatio];
-
-  return (
-    <div
-      className={`${ar} bg-muted flex items-end overflow-hidden relative group ${className ?? ""}`}
-    >
-      {/* Subtle grain texture via SVG filter */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none">
-        <filter id={`grain-${label}`}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter={`url(#grain-${label})`} />
-      </svg>
-      {label && (
-        <span className="relative z-10 p-3 text-xs tracking-widest uppercase text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {label}
-        </span>
-      )}
-    </div>
-  );
-}
+// ─── Scenic Unsplash images ──────────────────────────────────────────────────
+const IMAGES = {
+  hero:     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=85",
+  work1:    "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1600&q=80", // Patagonia mountains
+  work2:    "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80", // Iceland waterfall
+  work3:    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80", // Dolomites
+  work4:    "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=80", // Namib desert
+  work5:    "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80", // Norwegian fjords
+  work6:    "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=1200&q=80", // Atacama / night sky
+  portrait: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=800&q=80",  // Photographer portrait
+  divider:  "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=85", // Full-bleed landscape
+};
 
 // ─── Nav ────────────────────────────────────────────────────────────────────
 function Nav() {
@@ -79,9 +55,9 @@ function Nav() {
           </a>
         </nav>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile toggle */}
         <button
-          className="md:hidden flex flex-col gap-1.5 group"
+          className="md:hidden flex flex-col gap-1.5"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -91,7 +67,6 @@ function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ${
           menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
@@ -112,24 +87,16 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-end pb-16 px-6">
-      {/* Full-bleed background image placeholder */}
-      <div className="absolute inset-0 bg-muted">
-        <svg className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none">
-          <filter id="grain-hero">
-            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="4" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#grain-hero)" />
-        </svg>
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-      </div>
-
-      {/* Image credit placeholder */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none">
-        <p className="text-xs tracking-widest uppercase text-border">Hero image</p>
-        <p className="text-xs text-border/60 mt-1">Replace with full-bleed photograph</p>
-      </div>
+      <Image
+        src={IMAGES.hero}
+        alt="Dramatic golden-hour landscape"
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
 
       {/* Hero text */}
       <div className="relative z-10 mx-auto max-w-7xl w-full">
@@ -148,7 +115,6 @@ function Hero() {
           </p>
         </div>
 
-        {/* Scroll indicator */}
         <div className="mt-16 flex items-center gap-4">
           <div className="h-px w-12 bg-border" />
           <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">Scroll</span>
@@ -159,21 +125,48 @@ function Hero() {
 }
 
 // ─── Portfolio grid ──────────────────────────────────────────────────────────
-function Work() {
-  const works = [
-    { id: 1, title: "Patagonia, 2024", category: "Landscape", ratio: "landscape" as const },
-    { id: 2, title: "Iceland Series", category: "Long Exposure", ratio: "portrait" as const },
-    { id: 3, title: "Dolomites at Dawn", category: "Mountain", ratio: "landscape" as const },
-    { id: 4, title: "Namib Desert", category: "Aerial", ratio: "square" as const },
-    { id: 5, title: "Norwegian Fjords", category: "Seascape", ratio: "landscape" as const },
-    { id: 6, title: "Atacama", category: "Astro", ratio: "portrait" as const },
-    { id: 7, title: "Scottish Highlands", category: "Landscape", ratio: "landscape" as const },
-  ];
+const works = [
+  { title: "Patagonia, 2024",    category: "Landscape",     src: "work1", ratio: "landscape" },
+  { title: "Iceland Series",     category: "Long Exposure", src: "work2", ratio: "portrait"  },
+  { title: "Dolomites at Dawn",  category: "Mountain",      src: "work3", ratio: "landscape" },
+  { title: "Namib Desert",       category: "Aerial",        src: "work4", ratio: "square"    },
+  { title: "Norwegian Fjords",   category: "Seascape",      src: "work5", ratio: "landscape" },
+  { title: "Atacama",            category: "Astro",         src: "work6", ratio: "portrait"  },
+] as const;
 
+const AR: Record<string, string> = {
+  landscape: "aspect-[4/3]",
+  portrait:  "aspect-[3/4]",
+  square:    "aspect-square",
+};
+
+function WorkImage({
+  src,
+  alt,
+  ratio,
+}: {
+  src: keyof typeof IMAGES;
+  alt: string;
+  ratio: string;
+}) {
+  return (
+    <div className={`${AR[ratio]} relative overflow-hidden group cursor-pointer`}>
+      <Image
+        src={IMAGES[src]}
+        alt={alt}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+      <div className="absolute inset-0 bg-background/0 group-hover:bg-background/10 transition-colors duration-500" />
+    </div>
+  );
+}
+
+function Work() {
   return (
     <section id="work" className="py-(--spacing-section-lg) px-6">
       <div className="mx-auto max-w-7xl">
-        {/* Section header — asymmetric */}
         <div className="flex items-end justify-between mb-14">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3">Selected work</p>
@@ -187,29 +180,27 @@ function Work() {
           </a>
         </div>
 
-        {/* Asymmetric grid — breaks visual symmetry */}
+        {/* Asymmetric 12-col grid */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
 
-          {/* Large featured image */}
-          <div className="col-span-2 md:col-span-7 group cursor-pointer">
-            <PhotoPlaceholder aspectRatio={works[0].ratio} label={works[0].title} />
+          <div className="col-span-2 md:col-span-7">
+            <WorkImage src="work1" alt={works[0].title} ratio={works[0].ratio} />
             <div className="mt-3 flex justify-between items-baseline">
               <p className="font-heading text-lg font-light">{works[0].title}</p>
               <p className="text-xs tracking-widest uppercase text-muted-foreground">{works[0].category}</p>
             </div>
           </div>
 
-          {/* Stacked pair */}
           <div className="col-span-2 md:col-span-5 flex flex-col gap-3 md:gap-4">
-            <div className="group cursor-pointer">
-              <PhotoPlaceholder aspectRatio={works[1].ratio} label={works[1].title} />
+            <div>
+              <WorkImage src="work2" alt={works[1].title} ratio={works[1].ratio} />
               <div className="mt-3 flex justify-between items-baseline">
                 <p className="font-heading text-base font-light">{works[1].title}</p>
                 <p className="text-xs tracking-widest uppercase text-muted-foreground">{works[1].category}</p>
               </div>
             </div>
-            <div className="group cursor-pointer">
-              <PhotoPlaceholder aspectRatio={works[3].ratio} label={works[3].title} />
+            <div>
+              <WorkImage src="work4" alt={works[3].title} ratio={works[3].ratio} />
               <div className="mt-3 flex justify-between items-baseline">
                 <p className="font-heading text-base font-light">{works[3].title}</p>
                 <p className="text-xs tracking-widest uppercase text-muted-foreground">{works[3].category}</p>
@@ -217,21 +208,20 @@ function Work() {
             </div>
           </div>
 
-          {/* Bottom row — 3 columns of different widths */}
-          <div className="col-span-1 md:col-span-4 group cursor-pointer">
-            <PhotoPlaceholder aspectRatio={works[2].ratio} label={works[2].title} />
+          <div className="col-span-1 md:col-span-4">
+            <WorkImage src="work3" alt={works[2].title} ratio={works[2].ratio} />
             <div className="mt-3">
               <p className="font-heading text-base font-light">{works[2].title}</p>
             </div>
           </div>
-          <div className="col-span-1 md:col-span-5 group cursor-pointer">
-            <PhotoPlaceholder aspectRatio={works[4].ratio} label={works[4].title} />
+          <div className="col-span-1 md:col-span-5">
+            <WorkImage src="work5" alt={works[4].title} ratio={works[4].ratio} />
             <div className="mt-3">
               <p className="font-heading text-base font-light">{works[4].title}</p>
             </div>
           </div>
-          <div className="col-span-2 md:col-span-3 group cursor-pointer">
-            <PhotoPlaceholder aspectRatio={works[5].ratio} label={works[5].title} />
+          <div className="col-span-2 md:col-span-3">
+            <WorkImage src="work6" alt={works[5].title} ratio={works[5].ratio} />
             <div className="mt-3">
               <p className="font-heading text-base font-light">{works[5].title}</p>
             </div>
@@ -248,15 +238,20 @@ function About() {
   return (
     <section id="about" className="py-(--spacing-section-xl) px-6 border-t border-border">
       <div className="mx-auto max-w-7xl">
-        {/* Asymmetric layout — portrait offset */}
         <div className="grid md:grid-cols-12 gap-12 md:gap-0 items-start">
 
-          {/* Portrait — intentionally not full-width */}
           <div className="md:col-span-4 md:col-start-1">
-            <PhotoPlaceholder aspectRatio="portrait" label="George — portrait" />
+            <div className="aspect-[3/4] relative overflow-hidden">
+              <Image
+                src={IMAGES.portrait}
+                alt="George — photographer portrait"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
           </div>
 
-          {/* Text — offset down on desktop */}
           <div className="md:col-span-6 md:col-start-6 md:pt-24">
             <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-6">About</p>
             <h2 className="font-heading text-5xl md:text-6xl font-light leading-tight mb-8">
@@ -281,12 +276,11 @@ function About() {
               </p>
             </div>
 
-            {/* Stats — break up the text block */}
             <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
               {[
                 { value: "10+", label: "Years shooting" },
                 { value: "40+", label: "Countries" },
-                { value: "6", label: "Continents" },
+                { value: "6",   label: "Continents" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-heading text-3xl font-light text-foreground">{stat.value}</p>
@@ -299,6 +293,23 @@ function About() {
         </div>
       </div>
     </section>
+  );
+}
+
+// ─── Full-bleed divider image ─────────────────────────────────────────────────
+function DividerImage() {
+  return (
+    <div className="w-full h-[50vh] md:h-[65vh] relative overflow-hidden">
+      <Image
+        src={IMAGES.divider}
+        alt="Wide landscape panorama"
+        fill
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-background/30" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+    </div>
   );
 }
 
@@ -363,25 +374,6 @@ function Services() {
   );
 }
 
-// ─── Full-bleed divider image ─────────────────────────────────────────────────
-function DividerImage() {
-  return (
-    <div className="w-full h-[50vh] md:h-[65vh] bg-muted relative overflow-hidden">
-      <svg className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none">
-        <filter id="grain-divider">
-          <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain-divider)" />
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <p className="text-xs tracking-widest uppercase text-border/50">Full-bleed photograph — replace with real image</p>
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-    </div>
-  );
-}
-
 // ─── Contact ─────────────────────────────────────────────────────────────────
 function Contact() {
   return (
@@ -389,7 +381,6 @@ function Contact() {
       <div className="mx-auto max-w-7xl">
         <div className="grid md:grid-cols-12 gap-16">
 
-          {/* Left — copy */}
           <div className="md:col-span-5">
             <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-6">Contact</p>
             <h2 className="font-heading text-5xl md:text-6xl font-light leading-tight mb-8">
@@ -402,21 +393,18 @@ function Contact() {
             </p>
 
             <div className="mt-12 space-y-4">
-              <div>
-                <p className="text-xs tracking-widest uppercase text-muted-foreground mb-1">Email</p>
-                <p className="text-sm font-light">hello@george.photo</p>
-              </div>
-              <div>
-                <p className="text-xs tracking-widest uppercase text-muted-foreground mb-1">Based in</p>
-                <p className="text-sm font-light">London & wherever the light is</p>
-              </div>
-              <div>
-                <p className="text-xs tracking-widest uppercase text-muted-foreground mb-1">Response time</p>
-                <p className="text-sm font-light">Within 48 hours</p>
-              </div>
+              {[
+                { label: "Email",         value: "hello@george.photo" },
+                { label: "Based in",      value: "London & wherever the light is" },
+                { label: "Response time", value: "Within 48 hours" },
+              ].map((item) => (
+                <div key={item.label}>
+                  <p className="text-xs tracking-widest uppercase text-muted-foreground mb-1">{item.label}</p>
+                  <p className="text-sm font-light">{item.value}</p>
+                </div>
+              ))}
             </div>
 
-            {/* Social links */}
             <div className="mt-10 flex gap-6">
               {["Instagram", "Behance", "LinkedIn"].map((social) => (
                 <a
@@ -430,14 +418,11 @@ function Contact() {
             </div>
           </div>
 
-          {/* Right — form */}
           <div className="md:col-span-6 md:col-start-7">
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                    Name
-                  </label>
+                  <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">Name</label>
                   <input
                     type="text"
                     placeholder="Your name"
@@ -445,9 +430,7 @@ function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                    Email
-                  </label>
+                  <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">Email</label>
                   <input
                     type="email"
                     placeholder="your@email.com"
@@ -457,9 +440,7 @@ function Contact() {
               </div>
 
               <div>
-                <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                  Subject
-                </label>
+                <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">Subject</label>
                 <select className="w-full bg-muted border border-border px-4 py-3 text-sm font-light text-muted-foreground focus:outline-none focus:border-secondary transition-colors appearance-none">
                   <option value="">Select an enquiry type</option>
                   <option value="print">Fine art print</option>
@@ -470,9 +451,7 @@ function Contact() {
               </div>
 
               <div>
-                <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                  Message
-                </label>
+                <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">Message</label>
                 <textarea
                   rows={5}
                   placeholder="Tell me about your project..."
@@ -500,19 +479,11 @@ function Footer() {
   return (
     <footer className="border-t border-border py-8 px-6">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="font-heading text-base tracking-[0.15em] uppercase">
-          {brand.name}
-        </p>
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} George. All rights reserved.
-        </p>
+        <p className="font-heading text-base tracking-[0.15em] uppercase">{brand.name}</p>
+        <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} George. All rights reserved.</p>
         <div className="flex gap-8">
           {["Privacy", "Licensing", "Sitemap"].map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <a key={link} href="#" className="text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">
               {link}
             </a>
           ))}
