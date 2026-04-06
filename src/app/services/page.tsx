@@ -14,7 +14,7 @@ const IMAGES = {
 };
 
 export const metadata = {
-  title: "Services — 2728 Photos",
+  title: "Services | 2728 Photos",
   description:
     "Fine art prints, commercial commissions, and photography workshops with 2728 Photos.",
 };
@@ -25,16 +25,16 @@ const services = [
     title: "Fine Art Prints",
     tagline: "Own a piece of the world.",
     image: IMAGES.prints,
-    imageAlt: "Dolomites at dawn — fine art print",
+    imageAlt: "Dolomites at dawn, fine art print",
     body: [
-      "Every print in the 2728 Photos collection is produced on Hahnemühle Photo Rag 308gsm using archival pigment inks with a rated life of 200+ years. Each image is edition-limited to ten — once they sell out, they do not return.",
-      "Sizes range from 30×40cm (intimate, desk or shelf display) up to 120×160cm (statement wall pieces). All prints are hand-signed, numbered, and shipped in a bespoke flat-pack tube with a certificate of authenticity.",
-      "Custom sizes are available on request. Framing consultations can be arranged for London-based clients.",
+      "Every print in the 2728 Photos collection is produced on Hahnemühle Photo Rag 308gsm using archival pigment inks rated to last 200+ years. Each image is limited to an edition of ten. Once they sell out, they don't come back.",
+      "Sizes range from 30×40cm up to 120×160cm for statement wall pieces. All prints are hand-signed, numbered, and shipped in a bespoke flat-pack tube with a certificate of authenticity.",
+      "Custom sizes are available on request. If you're London-based, I can arrange a framing consultation too.",
     ],
     details: [
-      { label: "Editions",   value: "10 per image — no reprints" },
+      { label: "Editions",   value: "10 per image, no reprints" },
       { label: "Paper",      value: "Hahnemühle Photo Rag 308gsm" },
-      { label: "Inks",       value: "Archival pigment — 200yr rated" },
+      { label: "Inks",       value: "Archival pigment, 200yr rated" },
       { label: "Sizes",      value: "30×40cm → 120×160cm" },
       { label: "Delivery",   value: "Worldwide, fully insured" },
       { label: "Lead time",  value: "10–14 working days" },
@@ -49,13 +49,13 @@ const services = [
     image: IMAGES.commercial,
     imageAlt: "Commercial landscape photography",
     body: [
-      "I work with tourism boards, travel brands, outdoor companies, and editorial clients who need landscape photography that stands apart from stock. If the brief requires a specific location, time of year, or conditions — I'll plan the expedition to get it.",
-      "Past clients include destination marketing organisations, hotel groups, adventure travel companies, and print magazines. Licensing is bespoke; I don't use one-size-fits-all rates. Get in touch with your brief and I'll send a tailored proposal within 48 hours.",
-      "Usage rights, exclusivity windows, and raw vs. edited deliverables are all negotiable. My preference is always to understand the campaign first.",
+      "I work with tourism boards, travel brands, outdoor companies, and editorial clients who need landscape photography that stands apart from stock. If the brief calls for a specific location or set of conditions, I'll plan the expedition to get it right.",
+      "Past clients include destination marketing organisations, hotel groups, adventure travel companies, and print magazines. Licensing is bespoke. Get in touch with your brief and I'll send a tailored proposal within 48 hours.",
+      "Usage rights, exclusivity windows, and deliverable formats are all negotiable. I always prefer to understand the campaign before quoting.",
     ],
     details: [
       { label: "Output",      value: "Full-res TIFF + web JPEG" },
-      { label: "Licensing",   value: "Bespoke — usage + territory" },
+      { label: "Licensing",   value: "Bespoke per project" },
       { label: "Turnaround",  value: "Agreed per project" },
       { label: "Location",    value: "Worldwide" },
       { label: "Response",    value: "Proposal within 48 hrs" },
@@ -71,9 +71,9 @@ const services = [
     image: IMAGES.workshop,
     imageAlt: "Iceland photography workshop",
     body: [
-      "I run small-group expeditions — maximum four participants — to Iceland, Patagonia, and the Scottish Highlands. Three to seven days in the field, built around the specific light conditions of each destination. No lectures. No classrooms. You learn by doing, with me next to you.",
-      "The curriculum covers location scouting, reading weather for photography, long-exposure technique, composition principles drawn from my architectural background, and a post-processing session on the final evening. All skill levels are welcome; the only requirement is that you're serious about improving.",
-      "Workshops sell out quickly. Join the waitlist and I'll notify you when the next dates are confirmed.",
+      "I run small-group expeditions (maximum four people) to Iceland, Patagonia, and the Scottish Highlands. Three to seven days in the field, planned around the light conditions of each destination. No lectures, no classrooms. You learn by doing, with me next to you.",
+      "We cover location scouting, reading weather for photography, long-exposure technique, and composition principles drawn from my architectural background, plus a post-processing session on the final evening. All skill levels welcome. The only requirement is that you actually want to get better.",
+      "Workshops sell out quickly. Join the waitlist and I'll let you know when the next dates are confirmed.",
     ],
     details: [
       { label: "Group size", value: "Maximum 4 participants" },
@@ -81,7 +81,7 @@ const services = [
       { label: "Locations",  value: "Iceland · Patagonia · Scotland" },
       { label: "Includes",   value: "Accommodation + field guiding" },
       { label: "Skill level",value: "All levels welcome" },
-      { label: "Booking",    value: "Waitlist — limited dates" },
+      { label: "Booking",    value: "Waitlist, limited dates" },
     ],
     cta: "Join the waitlist",
     ctaHref: "/#contact",

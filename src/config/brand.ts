@@ -26,8 +26,8 @@ export const brand = {
   },
 
   meta: {
-    title: "2728 Photos — Fine Art Photography",
-    description: "Fine art photography — landscapes, light, and the spaces between",
+    title: "2728 Photos | Fine Art Photography",
+    description: "Fine art landscape photography by George. Limited edition prints, commissions, and workshops.",
     ogImage: "/og-image.png",
   },
 

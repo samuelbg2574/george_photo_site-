@@ -24,9 +24,9 @@ export const collections: Collection[] = [
     year: "2024",
     coverSrc: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1600&q=80",
     coverRatio: "landscape",
-    description: "Torres del Paine & Los Glaciares — three weeks at the end of the world.",
+    description: "Torres del Paine and Los Glaciares. Three weeks at the end of the world.",
     intro:
-      "Patagonia rewards patience in a way that few places on earth can match. I spent three weeks in Torres del Paine and the Los Glaciares region in the austral summer of 2024, waiting for the winds to drop and the towers to clear. This series documents the full range of that experience — from the ice-blue silence of Glacier Grey at 5am to the violent golden light that floods the pampas in the final minutes before sunset.",
+      "Patagonia rewards patience in a way that few places can match. I spent three weeks in Torres del Paine and the Los Glaciares region in the austral summer of 2024, waiting for the winds to drop and the towers to clear. This series documents the full range of that experience, from the ice-blue silence of Glacier Grey at 5am to the violent golden light that floods the pampas just before sunset.",
     images: [
       { src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1600&q=80", alt: "Torres del Paine towers at dawn", ratio: "landscape" },
       { src: "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1200&q=80", alt: "Glacial lake reflection", ratio: "portrait" },
@@ -45,9 +45,9 @@ export const collections: Collection[] = [
     year: "2023",
     coverSrc: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80",
     coverRatio: "portrait",
-    description: "Long exposures across Iceland's volcanic interior — autumn 2023.",
+    description: "Long exposures across Iceland's volcanic interior, autumn 2023.",
     intro:
-      "Iceland in October is almost entirely unpredictable, which is exactly why I go. This series spans the Westfjords, the Highlands, and the south coast — shot over eighteen days in conditions that ranged from glass-calm overnight frost to gale-force Atlantic storms. Every image in this collection is a long exposure, compressing time from thirty seconds to four minutes. The goal was to show the country not as it looks, but as it feels.",
+      "Iceland in October is almost entirely unpredictable, which is exactly why I go. This series spans the Westfjords, the Highlands, and the south coast, shot over eighteen days in conditions that ranged from glass-calm overnight frost to full Atlantic storms. Every image here is a long exposure, compressing anywhere from thirty seconds to four minutes. I wanted to show the country not as it looks, but as it feels.",
     images: [
       { src: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1400&q=80", alt: "Icelandic waterfall long exposure", ratio: "portrait" },
       { src: "https://images.unsplash.com/photo-1520769669658-f07657f5a307?auto=format&fit=crop&w=1600&q=80", alt: "Northern lights over volcanic landscape", ratio: "landscape" },
@@ -65,9 +65,9 @@ export const collections: Collection[] = [
     year: "2023",
     coverSrc: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80",
     coverRatio: "landscape",
-    description: "The Dolomites in the blue hour — pre-dawn silence in the Italian Alps.",
+    description: "The Dolomites in the blue hour. Pre-dawn silence in the Italian Alps.",
     intro:
-      "The Dolomites are heavily photographed, which means you have to arrive before everyone else. I spent ten days in the Tre Cime and Passo Giau area, leaving the car before 3am each morning to reach the viewpoints before first light. The series is specifically about the transition — the twenty minutes between deep blue darkness and the first pink alpenglow touching the limestone towers. After that window closes, I put the camera down.",
+      "The Dolomites are heavily photographed, which means you have to arrive before everyone else. I spent ten days in the Tre Cime and Passo Giau area, leaving the car before 3am each morning to reach the viewpoints before first light. The series is specifically about that transition, the twenty minutes between deep blue darkness and the first pink alpenglow touching the limestone towers. After that window closes, I put the camera down.",
     images: [
       { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80", alt: "Tre Cime at dawn", ratio: "landscape" },
       { src: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=80", alt: "Alpine meadow at blue hour", ratio: "portrait" },
@@ -85,9 +85,9 @@ export const collections: Collection[] = [
     year: "2022",
     coverSrc: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=80",
     coverRatio: "square",
-    description: "Sossusvlei and Deadvlei — the oldest desert on earth, at first and last light.",
+    description: "Sossusvlei and Deadvlei. The oldest desert on earth, at first and last light.",
     intro:
-      "The Namib is one of the most visually extreme places I've ever worked. The dunes at Sossusvlei shift between ochre, crimson, and near-black depending on the angle of the sun — and that angle matters enormously. This series required camping inside the park to access the dunes at true first light, before the wind erases the overnight ripple patterns. I shot both from the ground and from a light aircraft to capture the scale that's impossible to convey from eye level alone.",
+      "The Namib is one of the most visually extreme places I've ever worked. The dunes at Sossusvlei shift between ochre, crimson, and near-black depending on the angle of the sun, and that angle matters enormously. This series required camping inside the park to access the dunes at true first light, before the wind erases the overnight ripple patterns. I shot from the ground and from a light aircraft to capture the scale that's impossible to convey at eye level.",
     images: [
       { src: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1400&q=80", alt: "Namib dunes aerial view", ratio: "square" },
       { src: "https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?auto=format&fit=crop&w=1600&q=80", alt: "Deadvlei white clay pan", ratio: "landscape" },
@@ -104,9 +104,9 @@ export const collections: Collection[] = [
     year: "2022",
     coverSrc: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80",
     coverRatio: "landscape",
-    description: "Hardangerfjord & Geirangerfjord — deep winter reflections.",
+    description: "Hardangerfjord and Geirangerfjord. Deep winter reflections.",
     intro:
-      "The Norwegian fjords in January are a test of resolve. The light arrives briefly, stays low, and vanishes before 3pm. But in that narrow window — particularly in the hour before and after noon — the quality of illumination on the water is unlike anything else. This series focuses on reflections: the way the still fjord surface doubles the landscape and makes it impossible to identify top from bottom. Several images in this collection are presented rotated, and I will not tell you which ones.",
+      "The Norwegian fjords in January are a test of resolve. The light arrives briefly, stays low, and vanishes before 3pm. But in that narrow window, particularly around noon, the quality of illumination on the water is unlike anything else. This series focuses on reflections: the way the still fjord surface doubles the landscape until you can't tell top from bottom. Several images in this collection are presented rotated. I won't tell you which ones.",
     images: [
       { src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80", alt: "Norwegian fjord reflection at midwinter", ratio: "landscape" },
       { src: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=1200&q=80", alt: "Fjord village in winter light", ratio: "portrait" },
@@ -124,9 +124,9 @@ export const collections: Collection[] = [
     year: "2021",
     coverSrc: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=1200&q=80",
     coverRatio: "portrait",
-    description: "The clearest skies on earth — night photography in the Atacama Desert.",
+    description: "The clearest skies on earth. Night photography in the Atacama Desert.",
     intro:
-      "The Atacama is the driest non-polar desert on earth and sits at an altitude that places you above most of the atmosphere's moisture. The result is sky clarity I've never experienced elsewhere — the Milky Way casts a visible shadow. I spent fourteen nights here, shooting from midnight to 5am, working with exposures between 15 and 25 seconds to capture star trails and galactic core detail. The landscape — salt flats, volcanoes, alien rock formations — becomes the foreground for a sky that feels impossibly close.",
+      "The Atacama is the driest non-polar desert on earth and sits at an altitude that puts you above most of the atmosphere's moisture. The sky clarity here is something I've never experienced anywhere else. The Milky Way casts a visible shadow. I spent fourteen nights shooting from midnight to 5am, working with exposures between 15 and 25 seconds to capture star trails and galactic core detail. The landscape, salt flats and volcanoes and alien rock formations, becomes the foreground for a sky that feels impossibly close.",
     images: [
       { src: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=1400&q=80", alt: "Milky Way over Atacama Desert", ratio: "portrait" },
       { src: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80", alt: "Star trails over salt flat", ratio: "landscape" },
@@ -144,9 +144,9 @@ export const collections: Collection[] = [
     year: "2024",
     coverSrc: "https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&w=1200&q=80",
     coverRatio: "square",
-    description: "Utah's iconic red rock formations — the landscape that shaped American photography.",
+    description: "Utah's iconic red rock formations. The landscape that shaped American photography.",
     intro:
-      "Monument Valley straddles the Arizona-Utah border and represents an almost mythological version of the American West. The isolated buttes and mesas are so visually distinct that they've become shorthand for the desert itself. I spent two weeks here across different seasons, focusing on the relationship between light and scale. The formations demand a specific approach — wide and low to emphasize their isolation against open sky, or tight and geometric to reveal the texture of wind-carved sandstone.",
+      "Monument Valley straddles the Arizona-Utah border and represents an almost mythological version of the American West. The isolated buttes and mesas are so visually distinct that they've become shorthand for the desert itself. I spent two weeks here across different seasons, focusing on the relationship between light and scale. The formations demand a specific approach: wide and low to emphasize their isolation against open sky, or tight and geometric to reveal the texture of wind-carved sandstone.",
     images: [
       { src: "https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&w=1400&q=80", alt: "Monument Valley morning light", ratio: "square" },
       { src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80", alt: "Red rock formations at sunset", ratio: "landscape" },

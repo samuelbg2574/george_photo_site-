@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const collection = getCollection(slug);
   if (!collection) return {};
   return {
-    title: `${collection.title} — 2728 Photos`,
+    title: `${collection.title} | 2728 Photos`,
     description: collection.description,
   };
 }
@@ -124,8 +124,8 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
               <div className="space-y-3 border-t border-border pt-4 sm:pt-6 md:border-t-0 md:pt-0 md:border-l md:pl-8">
                 {[
                   { label: "Paper",    value: "Hahnemühle Photo Rag 308gsm" },
-                  { label: "Inks",     value: "Archival pigment — 200yr rated" },
-                  { label: "Editions", value: "10 per image — no reprints" },
+                  { label: "Inks",     value: "Archival pigment, 200yr rated" },
+                  { label: "Editions", value: "10 per image, no reprints" },
                   { label: "Sizes",    value: "30×40cm to 120×160cm" },
                 ].map((row) => (
                   <div key={row.label} className="flex gap-4">

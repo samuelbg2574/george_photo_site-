@@ -45,7 +45,7 @@ function Hero() {
             between
           </h1>
           <p className="mt-4 sm:mt-8 text-sm sm:text-base text-muted-foreground max-w-sm font-light leading-relaxed">
-            Landscapes, long exposures, and the quiet moments that go unnoticed. Based worldwide.
+            Landscapes and long exposures. The quiet moments most people walk past. Based in London, shooting everywhere.
           </p>
           <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <ShutterButton href="#work">View the work</ShutterButton>
@@ -194,8 +194,7 @@ function Contact() {
               <em className="italic">something real</em>
             </h2>
             <p className="text-sm text-muted-foreground font-light leading-relaxed max-w-xs">
-              Whether you&apos;re after a print, planning a shoot, or interested in a workshop —
-              reach out. Every enquiry gets a personal reply.
+              Whether it&apos;s a print, a commission, or just a question, I&apos;d love to hear from you. I reply to everything personally.
             </p>
 
             <div className="mt-6 sm:mt-12 space-y-4">

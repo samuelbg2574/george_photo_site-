@@ -11,8 +11,8 @@ const IMAGES = {
 };
 
 export const metadata = {
-  title: "About — 2728 Photos",
-  description: "The story behind 2728 Photos — fine art landscape photography.",
+  title: "About | 2728 Photos",
+  description: "The story behind 2728 Photos. Fine art landscape photography by George.",
 };
 
 export default function AboutPage() {
@@ -44,7 +44,7 @@ export default function AboutPage() {
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image
                   src={IMAGES.portrait}
-                  alt="George — 2728 Photos"
+                  alt="George, 2728 Photos"
                   fill
                   priority
                   className="object-cover object-top"
@@ -72,21 +72,21 @@ export default function AboutPage() {
                   &ldquo;I don&rsquo;t take photographs. I wait for them.&rdquo;
                 </p>
                 <p>
-                  I&apos;m George — the photographer behind 2728 Photos. I specialise in fine art
-                  landscape and seascape photography, drawn to the moments between light and
-                  dark that most people sleep through: the hour before dawn on a Patagonian
-                  glacier, the last sliver of sun breaking beneath Icelandic cloud cover,
-                  the silence of a desert at 3am.
+                  I&apos;m George, the photographer behind 2728 Photos. I specialise in fine art
+                  landscape and seascape photography. I&apos;m drawn to the moments most people
+                  sleep through. The hour before dawn on a Patagonian glacier. The last bit
+                  of sun breaking beneath Icelandic cloud cover. A desert at 3am when there&apos;s
+                  nobody around for miles.
                 </p>
                 <p>
-                  I began shooting seriously a decade ago after leaving a career in architecture.
-                  The compositional training transferred — I see landscapes the way an architect
-                  sees a building: as a problem of structure, proportion, and what to leave out.
+                  I started shooting seriously about a decade ago after leaving a career in
+                  architecture. That background stuck with me. I still see landscapes the way
+                  an architect reads a building: structure, proportion, knowing what to leave out.
                 </p>
                 <p>
-                  Today my work is held in private collections across the UK, Europe, and the
-                  United States. I shoot on medium format digital and a rotating selection of
-                  film cameras, printed to museum archival standards in limited editions of ten.
+                  My work is held in private collections across the UK, Europe, and the US.
+                  I shoot on medium format digital and a rotating selection of film cameras,
+                  printed to museum archival standards in limited editions of ten.
                 </p>
                 <p>
                   I&apos;m based in London but rarely there.
@@ -127,19 +127,18 @@ export default function AboutPage() {
             <ScrollReveal direction="up" delay={0.2} className="md:col-span-6 md:col-start-7 space-y-4 sm:space-y-5 text-sm font-light leading-relaxed text-muted-foreground">
               <p>
                 The camera is the last step in a long process. Before I press the shutter
-                I&apos;ve typically spent weeks researching a location: studying the topography,
-                the seasonal light, the weather patterns. I arrive days before the shot I&apos;m
-                after, to understand the place on its own terms.
+                I&apos;ve usually spent weeks researching a location, studying the topography
+                and the seasonal light. I arrive days before the shot I&apos;m after so I can
+                understand the place on its own terms.
               </p>
               <p>
-                The result is work that doesn&apos;t look accidental — because it isn&apos;t. Every
+                The result is work that doesn&apos;t look accidental, because it isn&apos;t. Every
                 print carries the weight of that preparation. When you hang a 2728 Photos
                 print, you&apos;re not hanging a lucky moment. You&apos;re hanging a decision.
               </p>
               <p>
                 I edit conservatively. The goal is to make the image look like what I
-                experienced standing there — not what a camera would record, which is
-                always a poor approximation of human perception.
+                experienced standing there, not what a camera sensor would record on its own.
               </p>
             </ScrollReveal>
           </div>
@@ -167,7 +166,7 @@ export default function AboutPage() {
               <p className="text-xs tracking-[0.3em] uppercase text-secondary">Equipment</p>
               <div className="space-y-3">
                 {[
-                  { item: "Primary",   spec: "Fujifilm GFX 100S II — 102MP medium format" },
+                  { item: "Primary",   spec: "Fujifilm GFX 100S II, 102MP medium format" },
                   { item: "Secondary", spec: "Hasselblad X2D 100C" },
                   { item: "Film",      spec: "Mamiya RB67 Pro-S / Kodak Portra 800" },
                   { item: "Printing",  spec: "Hahnemühle Photo Rag 308gsm, giclée" },
@@ -188,7 +187,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
             <div>
               <h3 className="font-heading text-3xl sm:text-4xl font-light">Ready to work together?</h3>
-              <p className="text-sm text-muted-foreground mt-2 font-light">Prints, commissions, workshops — let&apos;s talk.</p>
+              <p className="text-sm text-muted-foreground mt-2 font-light">Prints, commissions, or workshops. Let&apos;s talk.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <ShutterButton href="/services">See services</ShutterButton>
