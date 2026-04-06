@@ -3,9 +3,9 @@ import { brand } from "@/config/brand";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-10 px-6 bg-muted">
+    <footer className="border-t border-border py-8 sm:py-10 px-4 sm:px-6 bg-muted">
       <div className="mx-auto max-w-7xl">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-0 mb-8 pb-8 border-b border-border">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 md:gap-0 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-border">
           {/* Brand */}
           <div>
             <p className="font-heading text-2xl tracking-[0.12em] uppercase mb-3">{brand.name}</p>

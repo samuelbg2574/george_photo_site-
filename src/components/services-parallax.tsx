@@ -113,10 +113,11 @@ function ServiceSection({
     <div
       ref={wrapperRef}
       // 200 vh gives ~100 vh of sticky + ~100 vh of content scroll budget
-      className="relative min-h-[200vh]"
+      // Reduced on mobile to prevent excessive scrolling
+      className="relative min-h-[150vh] md:min-h-[200vh]"
     >
       {/* ── 1. STICKY IMAGE ──────────────────────────────────────────────── */}
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-[70vh] md:h-screen overflow-hidden">
         {/* Scaled / fading image layer */}
         <motion.div
           className="absolute inset-0 will-change-transform"
@@ -159,7 +160,7 @@ function ServiceSection({
             </p>
 
             {/* Service title */}
-            <h2 className="font-heading text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light italic leading-none tracking-tight text-background">
+            <h2 className="font-heading text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-light italic leading-none tracking-tight text-background">
               {service.title}
             </h2>
 

@@ -13,9 +13,9 @@ const AR: Record<string, string> = {
 // Masonry-style grid with staggered scroll-reveal per image
 export function ScrollRevealGrid({ images }: { images: CollectionImage[] }) {
   return (
-    <section className="py-(--spacing-section-lg) px-6">
+    <section className="py-8 sm:py-12 md:py-(--spacing-section-lg) px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
           {images.map((img, i) => (
             <ScrollReveal
               key={i}

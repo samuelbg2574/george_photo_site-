@@ -27,6 +27,8 @@
     color: var(--color-foreground);
     background: var(--color-background);
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -39,6 +41,13 @@
 
   * {
     border-color: var(--color-border);
+  }
+
+  /* Minimum touch target size for mobile */
+  @media (pointer: coarse) {
+    a, button, select, input, textarea {
+      min-height: 44px;
+    }
   }
 
   ::-webkit-scrollbar {
