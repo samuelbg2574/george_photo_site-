@@ -17,11 +17,11 @@ export function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-4 bg-background/90 backdrop-blur-md border-b border-border"
-          : "py-7"
+          ? "py-3 sm:py-4 bg-background/90 backdrop-blur-md border-b border-border"
+          : "py-4 sm:py-7"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 flex items-center justify-between">
         {/* Wordmark */}
         <a
           href="/"

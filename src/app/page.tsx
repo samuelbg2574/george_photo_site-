@@ -23,7 +23,7 @@ const IMAGES = {
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-16 px-6 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-end pb-8 sm:pb-16 px-4 sm:px-6 overflow-hidden">
       <Image
         src={IMAGES.hero}
         alt="Golden-hour landscape"
@@ -37,22 +37,22 @@ function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl w-full">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-5">Fine Art Photography</p>
-          <h1 className="font-heading text-6xl md:text-8xl lg:text-[7rem] font-light leading-none tracking-tight text-foreground">
+          <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-5">Fine Art Photography</p>
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight text-foreground">
             Light &amp;<br />
             <em className="italic">the spaces</em><br />
             between
           </h1>
-          <p className="mt-8 text-base text-muted-foreground max-w-sm font-light leading-relaxed">
+          <p className="mt-4 sm:mt-8 text-sm sm:text-base text-muted-foreground max-w-sm font-light leading-relaxed">
             Landscapes, long exposures, and the quiet moments that go unnoticed. Based worldwide.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <ShutterButton href="#work">View the work</ShutterButton>
             <LineButton href="/about">About George →</LineButton>
           </div>
         </div>
 
-        <div className="mt-16 flex items-center gap-4">
+        <div className="mt-8 sm:mt-16 flex items-center gap-4">
           <div className="h-px w-12 bg-border" />
           <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">Scroll</span>
         </div>
@@ -103,14 +103,14 @@ function Work() {
   const [c0, c1, c2, c3, c4, c5, c6] = collections;
 
   return (
-    <section id="work" className="py-(--spacing-section-lg) px-6 border-t border-border">
+    <section id="work" className="py-8 sm:py-12 md:py-(--spacing-section-lg) px-4 sm:px-6 border-t border-border">
       <div className="mx-auto max-w-7xl">
 
         {/* Header — reveals from below */}
-        <ScrollReveal direction="up" delay={0} className="flex items-end justify-between mb-14">
+        <ScrollReveal direction="up" delay={0} className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-0 mb-8 sm:mb-14">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3">Selected work</p>
-            <h2 className="font-heading text-5xl md:text-6xl font-light">Portfolio</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-2 sm:mb-3">Selected work</p>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">Portfolio</h2>
           </div>
           <LineButton href="/services" className="hidden md:inline-flex">
             Fine art prints →
@@ -118,7 +118,7 @@ function Work() {
         </ScrollReveal>
 
         {/* Asymmetric 12-col grid — each tile has its own scroll reveal */}
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
 
           <ScrollReveal direction="up" delay={0.05} className="col-span-2 md:col-span-7">
             <CollectionTile slug={c0.slug} src={c0.coverSrc} alt={c0.title} ratio={c0.coverRatio} title={c0.title} category={c0.category} />
@@ -162,7 +162,7 @@ function Work() {
 // ─── Divider quote ────────────────────────────────────────────────────────────
 function DividerImage() {
   return (
-    <div className="w-full h-[50vh] md:h-[60vh] relative overflow-hidden">
+    <div className="w-full h-[45vh] sm:h-[50vh] md:h-[60vh] relative overflow-hidden">
       <Image
         src={IMAGES.divider}
         alt="Wide landscape panorama"
@@ -180,14 +180,14 @@ function DividerImage() {
 // ─── Contact ──────────────────────────────────────────────────────────────────
 function Contact() {
   return (
-    <section id="contact" className="py-(--spacing-section-lg) px-6 border-t border-border">
+    <section id="contact" className="py-8 sm:py-12 md:py-(--spacing-section-lg) px-4 sm:px-6 border-t border-border">
       <div className="mx-auto max-w-7xl">
-        <div className="grid md:grid-cols-12 gap-16">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16">
 
           {/* Left copy */}
           <div className="md:col-span-5">
-            <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-6">Contact</p>
-            <h2 className="font-heading text-5xl md:text-6xl font-light leading-tight mb-8">
+            <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-6">Contact</p>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-4 sm:mb-8">
               Let&apos;s make<br />
               <em className="italic">something real</em>
             </h2>
@@ -196,7 +196,7 @@ function Contact() {
               reach out. Every enquiry gets a personal reply.
             </p>
 
-            <div className="mt-12 space-y-4">
+            <div className="mt-6 sm:mt-12 space-y-4">
               {[
                 { label: "Email",         value: brand.contact.email,    href: `mailto:${brand.contact.email}` },
                 { label: "Phone",         value: brand.contact.phone,    href: `tel:${brand.contact.phone.replace(/\s/g,"")}` },
@@ -213,7 +213,7 @@ function Contact() {
               ))}
             </div>
 
-            <div className="mt-10 flex gap-6">
+            <div className="mt-6 sm:mt-10 flex gap-6">
               {["Instagram", "Behance", "LinkedIn"].map((s) => (
                 <a key={s} href="#" className="text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">{s}</a>
               ))}
@@ -222,8 +222,8 @@ function Contact() {
 
           {/* Right form */}
           <div className="md:col-span-6 md:col-start-7">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-4">
+            <form className="space-y-4 sm:space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs tracking-widest uppercase text-muted-foreground block mb-2">Name</label>
                   <input type="text" placeholder="Your name"

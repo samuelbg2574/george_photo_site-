@@ -20,7 +20,7 @@ export function FlowButton({
 }) {
   const base = cn(
     "relative z-0 inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden",
-    "border border-foreground/25 px-7 py-3",
+    "border border-foreground/25 px-5 sm:px-7 py-2 sm:py-3",
     "text-xs tracking-[0.2em] uppercase font-medium text-foreground",
     "transition-all duration-500",
     // The fill circle — starts offscreen bottom-right, expands to cover on hover
@@ -65,7 +65,7 @@ export function ShutterButton({
 }) {
   const base = cn(
     "group relative inline-flex cursor-pointer items-center justify-center overflow-hidden",
-    "border border-foreground/30 px-10 py-4",
+    "border border-foreground/30 px-6 sm:px-10 py-3 sm:py-4",
     "text-xs tracking-[0.25em] uppercase font-medium text-foreground",
     "transition-colors duration-300",
     "hover:text-background hover:border-foreground",

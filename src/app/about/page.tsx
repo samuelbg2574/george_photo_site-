@@ -18,15 +18,15 @@ export default function AboutPage() {
   return (
     <>
       <Nav />
-      <main className="pt-28">
+      <main className="pt-16 sm:pt-28">
 
         {/* ── Page header ─────────────────────────────────────────────────── */}
-        <section className="px-6 pb-16 border-b border-border">
+        <section className="px-4 sm:px-6 pb-8 sm:pb-16 border-b border-border">
           <div className="mx-auto max-w-7xl">
             <div className="grid md:grid-cols-12">
               <div className="md:col-span-8">
-                <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-5">About</p>
-                <h1 className="font-heading text-6xl md:text-8xl font-light leading-none tracking-tight">
+                <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-5">About</p>
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light leading-none tracking-tight">
                   Chasing light<br />
                   <em className="italic">across continents</em>
                 </h1>
@@ -36,8 +36,8 @@ export default function AboutPage() {
         </section>
 
         {/* ── Portrait + opening bio ───────────────────────────────────────── */}
-        <section className="py-(--spacing-section-lg) px-6">
-          <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-12 md:gap-0 items-start">
+        <section className="py-8 sm:py-12 md:py-(--spacing-section-lg) px-4 sm:px-6">
+          <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-6 sm:gap-12 md:gap-0 items-start">
 
             <div className="md:col-span-4">
               <div className="aspect-[3/4] relative overflow-hidden">
@@ -50,14 +50,14 @@ export default function AboutPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-              <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
+              <div className="mt-4 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-4 border-t border-border pt-4 sm:pt-6">
                 {[
                   { value: "10+", label: "Years shooting" },
                   { value: "40+", label: "Countries" },
                   { value: "6",   label: "Continents" },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <p className="font-heading text-3xl font-light">{stat.value}</p>
+                    <p className="font-heading text-2xl sm:text-3xl font-light">{stat.value}</p>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground mt-1">{stat.label}</p>
                   </div>
                 ))}
@@ -66,8 +66,8 @@ export default function AboutPage() {
 
             {/* Bio — offset down to break symmetry */}
             <div className="md:col-span-6 md:col-start-6 md:pt-16">
-              <div className="space-y-6 text-base font-light leading-relaxed text-muted-foreground">
-                <p className="text-foreground text-lg font-light font-heading italic leading-snug">
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base font-light leading-relaxed text-muted-foreground">
+                <p className="text-foreground text-base sm:text-lg font-light font-heading italic leading-snug">
                   &ldquo;I don&rsquo;t take photographs. I wait for them.&rdquo;
                 </p>
                 <p>
@@ -92,7 +92,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <ShutterButton href="/services">Work with me</ShutterButton>
                 <LineButton href="/#contact">Get in touch →</LineButton>
               </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── Full-bleed image break ───────────────────────────────────────── */}
-        <div className="w-full h-[55vh] relative overflow-hidden">
+        <div className="w-full h-[40vh] sm:h-[50vh] md:h-[55vh] relative overflow-hidden">
           <Image
             src={IMAGES.landscape1}
             alt="Atmospheric landscape"
@@ -114,16 +114,16 @@ export default function AboutPage() {
         </div>
 
         {/* ── Philosophy section ───────────────────────────────────────────── */}
-        <section className="py-(--spacing-section-xl) px-6 bg-muted">
-          <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-16">
+        <section className="py-8 sm:py-12 md:py-(--spacing-section-xl) px-4 sm:px-6 bg-muted">
+          <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-8 md:gap-16">
             <div className="md:col-span-5">
-              <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-6">Philosophy</p>
-              <h2 className="font-heading text-5xl font-light leading-tight">
+              <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-6">Philosophy</p>
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
                 Stillness<br />
                 <em className="italic">is the work</em>
               </h2>
             </div>
-            <div className="md:col-span-6 md:col-start-7 space-y-5 text-sm font-light leading-relaxed text-muted-foreground">
+            <div className="md:col-span-6 md:col-start-7 space-y-4 sm:space-y-5 text-sm font-light leading-relaxed text-muted-foreground">
               <p>
                 The camera is the last step in a long process. Before I press the shutter
                 I&apos;ve typically spent weeks researching a location: studying the topography,
@@ -145,8 +145,8 @@ export default function AboutPage() {
         </section>
 
         {/* ── Behind the lens ──────────────────────────────────────────────── */}
-        <section className="py-(--spacing-section-md) px-6">
-          <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-8 items-center">
+        <section className="py-8 sm:py-12 md:py-(--spacing-section-md) px-4 sm:px-6">
+          <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-6 sm:gap-8 items-start md:items-center">
             <div className="md:col-span-5 md:col-start-2">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
@@ -157,12 +157,12 @@ export default function AboutPage() {
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
               </div>
-              <p className="mt-3 text-xs tracking-widest uppercase text-muted-foreground">
+              <p className="mt-2 sm:mt-3 text-xs tracking-widest uppercase text-muted-foreground">
                 Iceland, November 2023
               </p>
             </div>
 
-            <div className="md:col-span-4 md:col-start-8 space-y-5">
+            <div className="md:col-span-4 md:col-start-8 space-y-3 sm:space-y-5">
               <p className="text-xs tracking-[0.3em] uppercase text-secondary">Equipment</p>
               <div className="space-y-3">
                 {[
@@ -183,13 +183,13 @@ export default function AboutPage() {
         </section>
 
         {/* ── CTA strip ───────────────────────────────────────────────────── */}
-        <section className="py-20 px-6 border-t border-border">
-          <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <section className="py-12 sm:py-20 px-4 sm:px-6 border-t border-border">
+          <div className="mx-auto max-w-7xl flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
             <div>
-              <h3 className="font-heading text-4xl font-light">Ready to work together?</h3>
+              <h3 className="font-heading text-3xl sm:text-4xl font-light">Ready to work together?</h3>
               <p className="text-sm text-muted-foreground mt-2 font-light">Prints, commissions, workshops — let&apos;s talk.</p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <ShutterButton href="/services">See services</ShutterButton>
               <LineButton href="/#contact">Inquire now →</LineButton>
             </div>

@@ -90,15 +90,15 @@ export default function ServicesPage() {
   return (
     <>
       <Nav />
-      <main className="pt-28">
+      <main className="pt-16 sm:pt-28">
 
         {/* ── Page header ─────────────────────────────────────────────── */}
-        <section className="px-6 pb-16 border-b border-border">
+        <section className="px-4 sm:px-6 pb-8 sm:pb-16 border-b border-border">
           <div className="mx-auto max-w-7xl">
             <div className="grid md:grid-cols-12">
               <div className="md:col-span-9">
-                <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-5">Services</p>
-                <h1 className="font-heading text-6xl md:text-8xl font-light leading-none tracking-tight">
+                <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-5">Services</p>
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light leading-none tracking-tight">
                   How we<br />
                   <em className="italic">work together</em>
                 </h1>
@@ -114,12 +114,12 @@ export default function ServicesPage() {
             <section
               key={service.index}
               id={`service-${service.index}`}
-              className={`py-(--spacing-section-lg) px-6 ${i % 2 === 1 ? "bg-muted" : ""} border-b border-border`}
+              className={`py-8 sm:py-12 md:py-(--spacing-section-lg) px-4 sm:px-6 ${i % 2 === 1 ? "bg-muted" : ""} border-b border-border`}
             >
               <div className="mx-auto max-w-7xl">
 
                 {/* Mobile: stack image first */}
-                <div className={`grid md:grid-cols-12 gap-10 md:gap-16 items-start`}>
+                <div className={`grid md:grid-cols-12 gap-6 sm:gap-10 md:gap-16 items-start`}>
 
                   {/* Image col — alternates left / right */}
                   <div className={`md:col-span-5 ${isEven ? "md:col-start-8 md:row-start-1" : "md:col-start-1"}`}>
@@ -136,16 +136,16 @@ export default function ServicesPage() {
 
                   {/* Text col */}
                   <div className={`md:col-span-6 ${isEven ? "md:col-start-1 md:row-start-1" : "md:col-start-7"}`}>
-                    <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3">{service.index}</p>
-                    <h2 className="font-heading text-4xl md:text-5xl font-light mb-2">{service.title}</h2>
-                    <p className="text-base font-heading italic text-muted-foreground mb-8">{service.tagline}</p>
+                    <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-2 sm:mb-3">{service.index}</p>
+                    <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">{service.title}</h2>
+                    <p className="text-sm sm:text-base font-heading italic text-muted-foreground mb-4 sm:mb-8">{service.tagline}</p>
 
-                    <div className="space-y-4 text-sm font-light leading-relaxed text-muted-foreground mb-10">
+                    <div className="space-y-3 sm:space-y-4 text-sm font-light leading-relaxed text-muted-foreground mb-6 sm:mb-10">
                       {service.body.map((para, j) => <p key={j}>{para}</p>)}
                     </div>
 
                     {/* Details grid */}
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-3 border-t border-border pt-6 mb-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 border-t border-border pt-4 sm:pt-6 mb-6 sm:mb-10">
                       {service.details.map((row) => (
                         <div key={row.label}>
                           <p className="text-xs tracking-widest uppercase text-muted-foreground">{row.label}</p>
@@ -164,7 +164,7 @@ export default function ServicesPage() {
         })}
 
         {/* ── Full-bleed image ─────────────────────────────────────────── */}
-        <div className="w-full h-[45vh] relative overflow-hidden">
+        <div className="w-full h-[35vh] sm:h-[40vh] md:h-[45vh] relative overflow-hidden">
           <Image
             src={IMAGES.hero}
             alt="Wide landscape"
@@ -174,7 +174,7 @@ export default function ServicesPage() {
           />
           <div className="absolute inset-0 bg-foreground/15" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <p className="font-heading text-3xl md:text-5xl font-light text-background text-center px-6">
+            <p className="font-heading text-xl sm:text-3xl md:text-5xl font-light text-background text-center px-4 sm:px-6">
               &ldquo;The photograph is the proof<br />
               <em>that I was patient enough.</em>&rdquo;
             </p>
@@ -182,13 +182,13 @@ export default function ServicesPage() {
         </div>
 
         {/* ── Contact strip ────────────────────────────────────────────── */}
-        <section className="py-20 px-6">
-          <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <section className="py-12 sm:py-20 px-4 sm:px-6">
+          <div className="mx-auto max-w-7xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
             <div>
-              <h3 className="font-heading text-4xl font-light">Not sure which fits?</h3>
+              <h3 className="font-heading text-3xl sm:text-4xl font-light">Not sure which fits?</h3>
               <p className="text-sm text-muted-foreground mt-2 font-light">Drop me a message and we&apos;ll figure it out together.</p>
             </div>
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-start sm:items-center">
               <ShutterButton href="/#contact">Get in touch</ShutterButton>
               <a
                 href={`mailto:${brand.contact.email}`}
