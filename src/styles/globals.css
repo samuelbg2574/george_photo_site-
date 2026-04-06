@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: oklch(0.96 0.01 75);
-  --color-secondary: oklch(0.77 0.04 75);
-  --color-accent: oklch(0.57 0.07 65);
-  --color-background: oklch(0.08 0.005 75);
-  --color-foreground: oklch(0.96 0.01 75);
-  --color-muted: oklch(0.13 0.005 75);
-  --color-muted-foreground: oklch(0.55 0.01 75);
-  --color-border: oklch(0.22 0.005 75);
+  /* D4C7C7 warm grey palette — matches business card aesthetic */
+  --color-primary: oklch(0.82 0.016 12);        /* #D4C7C7 */
+  --color-secondary: oklch(0.62 0.018 12);      /* warm mid-grey */
+  --color-accent: oklch(0.40 0.022 12);         /* deep warm grey */
+  --color-background: oklch(1 0 0);             /* white */
+  --color-foreground: oklch(0.12 0.006 12);     /* near black with warmth */
+  --color-muted: oklch(0.97 0.004 12);          /* off-white */
+  --color-muted-foreground: oklch(0.50 0.010 12);
+  --color-border: oklch(0.87 0.010 12);         /* light warm grey border */
+  --color-card: oklch(0.99 0.002 12);
 
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
 
-  /* Varied spacing scale — avoids the "AI same-padding" look */
   --spacing-section-sm: 4rem;
   --spacing-section-md: 6.5rem;
   --spacing-section-lg: 9rem;
@@ -33,7 +34,7 @@
   }
 
   ::selection {
-    background: oklch(0.57 0.07 65 / 0.35);
+    background: oklch(0.82 0.016 12 / 0.45);
   }
 
   * {

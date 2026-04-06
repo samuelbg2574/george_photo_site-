@@ -1,19 +1,18 @@
 /**
  * Brand token configuration — the ONLY file that changes per client.
- * The scaffold script replaces these placeholders with real values.
  */
 
 export const brand = {
-  name: "George",
+  name: "2728 Photos",
   slug: "george-photographer",
   niche: "portfolio",
 
   colors: {
-    primary: "#f5f0eb",
-    secondary: "#c9b99a",
-    accent: "#8c7355",
-    background: "#0a0a09",
-    foreground: "#f5f0eb",
+    primary: "#D4C7C7",
+    secondary: "#9A8B8B",
+    accent: "#5C4F4F",
+    background: "#FFFFFF",
+    foreground: "#1C1A1A",
   },
 
   fonts: {
@@ -21,8 +20,13 @@ export const brand = {
     body: "DM Sans",
   },
 
+  contact: {
+    email: "2728photos@gmail.com",
+    phone: "07534 667455",
+  },
+
   meta: {
-    title: "George",
+    title: "2728 Photos — Fine Art Photography",
     description: "Fine art photography — landscapes, light, and the spaces between",
     ogImage: "/og-image.png",
   },
