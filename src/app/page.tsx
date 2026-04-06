@@ -120,9 +120,14 @@ function Work() {
         {/* Asymmetric 12-col grid — each tile has its own scroll reveal */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
 
-          <ScrollReveal direction="up" delay={0.05} className="col-span-2 md:col-span-7">
-            <CollectionTile slug={c0.slug} src={c0.coverSrc} alt={c0.title} ratio={c0.coverRatio} title={c0.title} category={c0.category} />
-          </ScrollReveal>
+          <div className="col-span-2 md:col-span-7 flex flex-col gap-3 md:gap-4">
+            <ScrollReveal direction="up" delay={0.05}>
+              <CollectionTile slug={c0.slug} src={c0.coverSrc} alt={c0.title} ratio={c0.coverRatio} title={c0.title} category={c0.category} />
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.12}>
+              <CollectionTile slug={c6.slug} src={c6.coverSrc} alt={c6.title} ratio={c6.coverRatio} title={c6.title} category={c6.category} />
+            </ScrollReveal>
+          </div>
 
           <div className="col-span-2 md:col-span-5 flex flex-col gap-3 md:gap-4">
             <ScrollReveal direction="up" delay={0.1}>
@@ -143,10 +148,6 @@ function Work() {
 
           <ScrollReveal direction="up" delay={0.16} className="col-span-2 md:col-span-3">
             <CollectionTile slug={c5.slug} src={c5.coverSrc} alt={c5.title} ratio={c5.coverRatio} title={c5.title} category={c5.category} />
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0.18} className="col-span-2 md:col-span-3">
-            <CollectionTile slug={c6.slug} src={c6.coverSrc} alt={c6.title} ratio={c6.coverRatio} title={c6.title} category={c6.category} />
           </ScrollReveal>
 
         </div>
