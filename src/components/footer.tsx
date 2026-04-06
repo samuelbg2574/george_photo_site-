@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { brand } from "@/config/brand";
 
 export function Footer() {
@@ -22,9 +23,9 @@ export function Footer() {
               { label: "Services", href: "/services" },
               { label: "Inquire",  href: "/#contact" },
             ].map((link) => (
-              <a key={link.label} href={link.href} className="text-sm font-light text-muted-foreground hover:text-foreground transition-colors">
+              <Link key={link.label} href={link.href} className="text-sm font-light text-muted-foreground hover:text-foreground transition-colors">
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 

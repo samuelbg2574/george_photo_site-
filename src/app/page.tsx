@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { brand } from "@/config/brand";
 import { Nav } from "@/components/nav";
@@ -72,7 +73,7 @@ function CollectionTile({ slug, src, alt, ratio, title, category }: {
   slug: string; src: string; alt: string; ratio: string; title: string; category: string;
 }) {
   return (
-    <a href={`/work/${slug}`} className="block group">
+    <Link href={`/work/${slug}`} className="block group">
       <div className={`${AR[ratio]} relative overflow-hidden`}>
         <Image
           src={src}
@@ -94,7 +95,7 @@ function CollectionTile({ slug, src, alt, ratio, title, category }: {
         <p className="font-heading text-lg font-light group-hover:text-secondary transition-colors duration-200">{title}</p>
         <p className="text-xs tracking-widest uppercase text-muted-foreground">{category}</p>
       </div>
-    </a>
+    </Link>
   );
 }
 

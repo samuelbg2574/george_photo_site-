@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import React from "react";
 
 // ─── Flow Fill Button (adapted from 21st.dev Flow Hover Button) ──────────────
@@ -37,9 +38,9 @@ export function FlowButton({
 
   if (href) {
     return (
-      <a href={href} className={base}>
+      <Link href={href} className={base}>
         <span className="relative z-10">{children}</span>
-      </a>
+      </Link>
     );
   }
 
@@ -89,7 +90,7 @@ export function ShutterButton({
   );
 
   if (href) {
-    return <a href={href} className={base}>{inner}</a>;
+    return <Link href={href} className={base}>{inner}</Link>;
   }
 
   return (
@@ -129,6 +130,6 @@ export function LineButton({
     </>
   );
 
-  if (href) return <a href={href} className={base}>{inner}</a>;
+  if (href) return <Link href={href} className={base}>{inner}</Link>;
   return <button onClick={onClick} className={base}>{inner}</button>;
 }

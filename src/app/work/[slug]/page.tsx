@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { collections, getCollection } from "@/data/collections";
 import { Nav } from "@/components/nav";
@@ -49,7 +50,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
             {/* Breadcrumb */}
             <ScrollReveal direction="up" delay={0}>
               <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground mb-8">
-                <a href="/#work" className="hover:text-foreground transition-colors">Work</a>
+                <Link href="/#work" className="hover:text-foreground transition-colors">Work</Link>
                 <span>/</span>
                 <span className="text-foreground">{collection.title}</span>
               </div>
@@ -140,26 +141,26 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
         {/* ── Prev / Next collection navigation ───────────────────────── */}
         <nav className="border-t border-border grid grid-cols-2">
           {prev ? (
-            <a
+            <Link
               href={`/work/${prev.slug}`}
               className="group flex flex-col gap-2 p-8 md:p-12 border-r border-border hover:bg-muted transition-colors"
             >
               <span className="text-xs tracking-widest uppercase text-muted-foreground group-hover:text-secondary transition-colors">← Previous</span>
               <span className="font-heading text-xl md:text-2xl font-light">{prev.title}</span>
               <span className="text-xs tracking-widest uppercase text-muted-foreground">{prev.category}</span>
-            </a>
+            </Link>
           ) : (
             <div />
           )}
           {next ? (
-            <a
+            <Link
               href={`/work/${next.slug}`}
               className="group flex flex-col gap-2 p-8 md:p-12 text-right hover:bg-muted transition-colors"
             >
               <span className="text-xs tracking-widest uppercase text-muted-foreground group-hover:text-secondary transition-colors">Next →</span>
               <span className="font-heading text-xl md:text-2xl font-light">{next.title}</span>
               <span className="text-xs tracking-widest uppercase text-muted-foreground">{next.category}</span>
-            </a>
+            </Link>
           ) : (
             <div />
           )}

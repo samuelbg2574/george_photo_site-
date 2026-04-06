@@ -2,11 +2,12 @@ import Image from "next/image";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { ShutterButton, LineButton } from "@/components/ui/photo-button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const IMAGES = {
   portrait:  "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=900&q=85",
   landscape1:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
-  behind:    "https://images.unsplash.com/photo-1554048612-b6ebae92138d?auto=format&fit=crop&w=900&q=80",
+  behind:    "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=900&q=80",
 };
 
 export const metadata = {
@@ -39,7 +40,7 @@ export default function AboutPage() {
         <section className="py-8 sm:py-12 md:py-(--spacing-section-lg) px-4 sm:px-6">
           <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-6 sm:gap-12 md:gap-0 items-start">
 
-            <div className="md:col-span-4">
+            <ScrollReveal direction="up" delay={0} className="md:col-span-4">
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image
                   src={IMAGES.portrait}
@@ -62,10 +63,10 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Bio — offset down to break symmetry */}
-            <div className="md:col-span-6 md:col-start-6 md:pt-16">
+            <ScrollReveal direction="up" delay={0.15} className="md:col-span-6 md:col-start-6 md:pt-16">
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base font-light leading-relaxed text-muted-foreground">
                 <p className="text-foreground text-base sm:text-lg font-light font-heading italic leading-snug">
                   &ldquo;I don&rsquo;t take photographs. I wait for them.&rdquo;
@@ -96,7 +97,7 @@ export default function AboutPage() {
                 <ShutterButton href="/services">Work with me</ShutterButton>
                 <LineButton href="/#contact">Get in touch →</LineButton>
               </div>
-            </div>
+            </ScrollReveal>
 
           </div>
         </section>
@@ -116,14 +117,14 @@ export default function AboutPage() {
         {/* ── Philosophy section ───────────────────────────────────────────── */}
         <section className="py-8 sm:py-12 md:py-(--spacing-section-xl) px-4 sm:px-6 bg-muted">
           <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-8 md:gap-16">
-            <div className="md:col-span-5">
+            <ScrollReveal direction="up" delay={0} className="md:col-span-5">
               <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-6">Philosophy</p>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
                 Stillness<br />
                 <em className="italic">is the work</em>
               </h2>
-            </div>
-            <div className="md:col-span-6 md:col-start-7 space-y-4 sm:space-y-5 text-sm font-light leading-relaxed text-muted-foreground">
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.2} className="md:col-span-6 md:col-start-7 space-y-4 sm:space-y-5 text-sm font-light leading-relaxed text-muted-foreground">
               <p>
                 The camera is the last step in a long process. Before I press the shutter
                 I&apos;ve typically spent weeks researching a location: studying the topography,
@@ -140,14 +141,14 @@ export default function AboutPage() {
                 experienced standing there — not what a camera would record, which is
                 always a poor approximation of human perception.
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* ── Behind the lens ──────────────────────────────────────────────── */}
         <section className="py-8 sm:py-12 md:py-(--spacing-section-md) px-4 sm:px-6">
           <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-6 sm:gap-8 items-start md:items-center">
-            <div className="md:col-span-5 md:col-start-2">
+            <ScrollReveal direction="left" delay={0} className="md:col-span-5 md:col-start-2">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
                   src={IMAGES.behind}
@@ -160,9 +161,9 @@ export default function AboutPage() {
               <p className="mt-2 sm:mt-3 text-xs tracking-widest uppercase text-muted-foreground">
                 Iceland, November 2023
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="md:col-span-4 md:col-start-8 space-y-3 sm:space-y-5">
+            <ScrollReveal direction="right" delay={0.15} className="md:col-span-4 md:col-start-8 space-y-3 sm:space-y-5">
               <p className="text-xs tracking-[0.3em] uppercase text-secondary">Equipment</p>
               <div className="space-y-3">
                 {[
@@ -178,7 +179,7 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
