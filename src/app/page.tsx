@@ -38,24 +38,24 @@ function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl w-full">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3 sm:mb-5">Fine Art Photography</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-accent mb-3 sm:mb-5">Fine Art Photography</p>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight text-foreground">
             Light &amp;<br />
             <em className="italic">the spaces</em><br />
             between
           </h1>
-          <p className="mt-4 sm:mt-8 text-sm sm:text-base text-muted-foreground max-w-sm font-light leading-relaxed">
+          <p className="mt-4 sm:mt-8 text-sm sm:text-base text-foreground/75 max-w-sm font-light leading-relaxed">
             Landscapes and long exposures. The quiet moments most people walk past. Based in London, shooting everywhere.
           </p>
           <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <ShutterButton href="#work">View the work</ShutterButton>
-            <LineButton href="/about">About George →</LineButton>
+            <LineButton href="/about" className="text-accent hover:text-foreground">About George →</LineButton>
           </div>
         </div>
 
         <div className="mt-8 sm:mt-16 flex items-center gap-4">
           <div className="h-px w-12 bg-border" />
-          <span className="text-xs tracking-[0.25em] uppercase text-muted-foreground">Scroll</span>
+          <span className="text-xs tracking-[0.25em] uppercase text-accent">Scroll</span>
         </div>
       </div>
     </section>

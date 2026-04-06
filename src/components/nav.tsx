@@ -60,7 +60,7 @@ export function Nav() {
       </div>
 
       {/* Mobile drawer */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}`}>
         <nav className="flex flex-col gap-6 px-6 pt-6 pb-8 text-sm tracking-widest uppercase text-muted-foreground border-t border-border mt-4">
           <Link href="/#work"    onClick={() => setMenuOpen(false)} className="hover:text-foreground transition-colors">Work</Link>
           <Link href="/about"    onClick={() => setMenuOpen(false)} className="hover:text-foreground transition-colors">About</Link>
