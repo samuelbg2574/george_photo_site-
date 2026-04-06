@@ -100,7 +100,7 @@ function CollectionTile({ slug, src, alt, ratio, title, category }: {
 
 // ─── Work section ─────────────────────────────────────────────────────────────
 function Work() {
-  const [c0, c1, c2, c3, c4, c5] = collections;
+  const [c0, c1, c2, c3, c4, c5, c6] = collections;
 
   return (
     <section id="work" className="py-(--spacing-section-lg) px-6 border-t border-border">
@@ -143,6 +143,10 @@ function Work() {
 
           <ScrollReveal direction="up" delay={0.16} className="col-span-2 md:col-span-3">
             <CollectionTile slug={c5.slug} src={c5.coverSrc} alt={c5.title} ratio={c5.coverRatio} title={c5.title} category={c5.category} />
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.18} className="col-span-2 md:col-span-3">
+            <CollectionTile slug={c6.slug} src={c6.coverSrc} alt={c6.title} ratio={c6.coverRatio} title={c6.title} category={c6.category} />
           </ScrollReveal>
 
         </div>
