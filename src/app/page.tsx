@@ -6,6 +6,8 @@ import { brand } from "@/config/brand";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { ShutterButton, FlowButton, LineButton } from "@/components/ui/photo-button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { collections } from "@/data/collections";
 
 const IMAGES = {
   hero:    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=85",
@@ -59,43 +61,53 @@ function Hero() {
   );
 }
 
-// ─── Work image tile ─────────────────────────────────────────────────────────
-function WorkImage({ src, alt, ratio }: { src: keyof typeof IMAGES; alt: string; ratio: string }) {
-  const AR: Record<string, string> = {
-    landscape: "aspect-[4/3]",
-    portrait:  "aspect-[3/4]",
-    square:    "aspect-square",
-  };
+const AR: Record<string, string> = {
+  landscape: "aspect-[4/3]",
+  portrait:  "aspect-[3/4]",
+  square:    "aspect-square",
+};
+
+// ─── Linked collection tile ───────────────────────────────────────────────────
+function CollectionTile({ slug, src, alt, ratio, title, category }: {
+  slug: string; src: string; alt: string; ratio: string; title: string; category: string;
+}) {
   return (
-    <div className={`${AR[ratio]} relative overflow-hidden group cursor-pointer`}>
-      <Image
-        src={IMAGES[src]}
-        alt={alt}
-        fill
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        sizes="(max-width: 768px) 100vw, 50vw"
-      />
-      {/* Warm grey wash on hover */}
-      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500" />
-    </div>
+    <a href={`/work/${slug}`} className="block group">
+      <div className={`${AR[ratio]} relative overflow-hidden`}>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        {/* Warm grey overlay */}
+        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/15 transition-colors duration-500" />
+        {/* View collection label */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+          <span className="text-xs tracking-[0.25em] uppercase text-foreground border border-foreground/50 px-4 py-2 bg-background/70 backdrop-blur-sm">
+            View collection
+          </span>
+        </div>
+      </div>
+      <div className="mt-3 flex justify-between items-baseline">
+        <p className="font-heading text-lg font-light group-hover:text-secondary transition-colors duration-200">{title}</p>
+        <p className="text-xs tracking-widest uppercase text-muted-foreground">{category}</p>
+      </div>
+    </a>
   );
 }
 
-const works = [
-  { title: "Patagonia, 2024",   category: "Landscape",     src: "work1" as const, ratio: "landscape" },
-  { title: "Iceland Series",    category: "Long Exposure",  src: "work2" as const, ratio: "portrait"  },
-  { title: "Dolomites at Dawn", category: "Mountain",       src: "work3" as const, ratio: "landscape" },
-  { title: "Namib Desert",      category: "Aerial",         src: "work4" as const, ratio: "square"    },
-  { title: "Norwegian Fjords",  category: "Seascape",       src: "work5" as const, ratio: "landscape" },
-  { title: "Atacama",           category: "Astro",          src: "work6" as const, ratio: "portrait"  },
-];
-
 // ─── Work section ─────────────────────────────────────────────────────────────
 function Work() {
+  const [c0, c1, c2, c3, c4, c5] = collections;
+
   return (
     <section id="work" className="py-(--spacing-section-lg) px-6 border-t border-border">
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-end justify-between mb-14">
+
+        {/* Header — reveals from below */}
+        <ScrollReveal direction="up" delay={0} className="flex items-end justify-between mb-14">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-3">Selected work</p>
             <h2 className="font-heading text-5xl md:text-6xl font-light">Portfolio</h2>
@@ -103,54 +115,41 @@ function Work() {
           <LineButton href="/services" className="hidden md:inline-flex">
             Fine art prints →
           </LineButton>
-        </div>
+        </ScrollReveal>
 
-        {/* Asymmetric 12-col grid */}
+        {/* Asymmetric 12-col grid — each tile has its own scroll reveal */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
 
-          <div className="col-span-2 md:col-span-7">
-            <WorkImage src={works[0].src} alt={works[0].title} ratio={works[0].ratio} />
-            <div className="mt-3 flex justify-between items-baseline">
-              <p className="font-heading text-lg font-light">{works[0].title}</p>
-              <p className="text-xs tracking-widest uppercase text-muted-foreground">{works[0].category}</p>
-            </div>
-          </div>
+          <ScrollReveal direction="up" delay={0.05} className="col-span-2 md:col-span-7">
+            <CollectionTile slug={c0.slug} src={c0.coverSrc} alt={c0.title} ratio={c0.coverRatio} title={c0.title} category={c0.category} />
+          </ScrollReveal>
 
           <div className="col-span-2 md:col-span-5 flex flex-col gap-3 md:gap-4">
-            <div>
-              <WorkImage src={works[1].src} alt={works[1].title} ratio={works[1].ratio} />
-              <div className="mt-3 flex justify-between items-baseline">
-                <p className="font-heading text-base font-light">{works[1].title}</p>
-                <p className="text-xs tracking-widest uppercase text-muted-foreground">{works[1].category}</p>
-              </div>
-            </div>
-            <div>
-              <WorkImage src={works[3].src} alt={works[3].title} ratio={works[3].ratio} />
-              <div className="mt-3 flex justify-between items-baseline">
-                <p className="font-heading text-base font-light">{works[3].title}</p>
-                <p className="text-xs tracking-widest uppercase text-muted-foreground">{works[3].category}</p>
-              </div>
-            </div>
+            <ScrollReveal direction="up" delay={0.1}>
+              <CollectionTile slug={c1.slug} src={c1.coverSrc} alt={c1.title} ratio={c1.coverRatio} title={c1.title} category={c1.category} />
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.15}>
+              <CollectionTile slug={c3.slug} src={c3.coverSrc} alt={c3.title} ratio={c3.coverRatio} title={c3.title} category={c3.category} />
+            </ScrollReveal>
           </div>
 
-          <div className="col-span-1 md:col-span-4">
-            <WorkImage src={works[2].src} alt={works[2].title} ratio={works[2].ratio} />
-            <div className="mt-3"><p className="font-heading text-base font-light">{works[2].title}</p></div>
-          </div>
-          <div className="col-span-1 md:col-span-5">
-            <WorkImage src={works[4].src} alt={works[4].title} ratio={works[4].ratio} />
-            <div className="mt-3"><p className="font-heading text-base font-light">{works[4].title}</p></div>
-          </div>
-          <div className="col-span-2 md:col-span-3">
-            <WorkImage src={works[5].src} alt={works[5].title} ratio={works[5].ratio} />
-            <div className="mt-3"><p className="font-heading text-base font-light">{works[5].title}</p></div>
-          </div>
+          <ScrollReveal direction="up" delay={0.08} className="col-span-1 md:col-span-4">
+            <CollectionTile slug={c2.slug} src={c2.coverSrc} alt={c2.title} ratio={c2.coverRatio} title={c2.title} category={c2.category} />
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.12} className="col-span-1 md:col-span-5">
+            <CollectionTile slug={c4.slug} src={c4.coverSrc} alt={c4.title} ratio={c4.coverRatio} title={c4.title} category={c4.category} />
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.16} className="col-span-2 md:col-span-3">
+            <CollectionTile slug={c5.slug} src={c5.coverSrc} alt={c5.title} ratio={c5.coverRatio} title={c5.title} category={c5.category} />
+          </ScrollReveal>
 
         </div>
 
-        <div className="mt-12 text-center">
+        <ScrollReveal direction="up" delay={0.1} className="mt-12 text-center">
           <FlowButton href="/services">Inquire about prints</FlowButton>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
