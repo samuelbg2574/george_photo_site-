@@ -5,6 +5,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { ShutterButton, LineButton } from "@/components/ui/photo-button";
 import { ScrollRevealGrid } from "@/components/work-grid";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 // Generate static params for all collections
 export async function generateStaticParams() {
@@ -46,27 +47,29 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
         <section className="px-6 pb-14 border-b border-border">
           <div className="mx-auto max-w-7xl">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground mb-8">
-              <a href="/#work" className="hover:text-foreground transition-colors">Work</a>
-              <span>/</span>
-              <span className="text-foreground">{collection.title}</span>
-            </div>
+            <ScrollReveal direction="up" delay={0}>
+              <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground mb-8">
+                <a href="/#work" className="hover:text-foreground transition-colors">Work</a>
+                <span>/</span>
+                <span className="text-foreground">{collection.title}</span>
+              </div>
+            </ScrollReveal>
 
             <div className="grid md:grid-cols-12 gap-8 items-end">
-              <div className="md:col-span-7">
+              <ScrollReveal direction="up" delay={0.05} className="md:col-span-7">
                 <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-4">{collection.category} · {collection.year}</p>
                 <h1 className="font-heading text-6xl md:text-8xl font-light leading-none tracking-tight">
                   {collection.title}
                 </h1>
-              </div>
-              <div className="md:col-span-4 md:col-start-9">
+              </ScrollReveal>
+              <ScrollReveal direction="up" delay={0.1} className="md:col-span-4 md:col-start-9">
                 <p className="text-sm font-light text-muted-foreground leading-relaxed">
                   {collection.description}
                 </p>
                 <p className="mt-2 text-xs tracking-widest uppercase text-muted-foreground">
                   {collection.images.length} photographs
                 </p>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -87,11 +90,11 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
         {/* ── Intro text ──────────────────────────────────────────────── */}
         <section className="py-(--spacing-section-md) px-6 border-b border-border">
           <div className="mx-auto max-w-7xl grid md:grid-cols-12">
-            <div className="md:col-span-7 md:col-start-4">
+            <ScrollReveal direction="up" delay={0} className="md:col-span-7 md:col-start-4">
               <p className="font-heading text-2xl md:text-3xl font-light italic text-muted-foreground leading-relaxed">
                 {collection.intro}
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -101,7 +104,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
         {/* ── Print enquiry CTA ───────────────────────────────────────── */}
         <section className="py-(--spacing-section-md) px-6 bg-muted border-t border-border">
           <div className="mx-auto max-w-7xl grid md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-6">
+            <ScrollReveal direction="up" delay={0} className="md:col-span-6">
               <p className="text-xs tracking-[0.3em] uppercase text-secondary mb-4">Limited editions</p>
               <h2 className="font-heading text-4xl md:text-5xl font-light leading-tight">
                 Own a print<br />
@@ -115,8 +118,8 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
                 <ShutterButton href="/#contact">Enquire about prints</ShutterButton>
                 <LineButton href="/services">See all editions →</LineButton>
               </div>
-            </div>
-            <div className="md:col-span-4 md:col-start-9">
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.08} className="md:col-span-4 md:col-start-9">
               <div className="space-y-3 border-t border-border pt-6 md:border-t-0 md:pt-0 md:border-l md:pl-8">
                 {[
                   { label: "Paper",    value: "Hahnemühle Photo Rag 308gsm" },
@@ -130,7 +133,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
