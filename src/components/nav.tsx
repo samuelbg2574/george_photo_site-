@@ -16,9 +16,9 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md transition-all duration-500 ${
         scrolled
-          ? "py-3 sm:py-4 bg-background/90 backdrop-blur-md border-b border-border"
+          ? "py-3 sm:py-4 border-b border-border"
           : "py-4 sm:py-7"
       }`}
     >
@@ -60,8 +60,8 @@ export function Nav() {
       </div>
 
       {/* Mobile drawer */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}`}>
-        <nav className="flex flex-col gap-6 px-6 pt-6 pb-8 text-sm tracking-widest uppercase text-muted-foreground border-t border-border mt-4">
+      <div className={`md:hidden overflow-hidden transition-all duration-500 ${menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
+        <nav className="flex flex-col gap-4 px-6 pt-4 pb-4 text-sm tracking-widest uppercase text-muted-foreground border-t border-border mt-4">
           <Link href="/#work"    onClick={() => setMenuOpen(false)} className="hover:text-foreground transition-colors">Work</Link>
           <Link href="/about"    onClick={() => setMenuOpen(false)} className="hover:text-foreground transition-colors">About</Link>
           <Link href="/services" onClick={() => setMenuOpen(false)} className="hover:text-foreground transition-colors">Services</Link>
