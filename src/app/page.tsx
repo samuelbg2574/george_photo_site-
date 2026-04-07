@@ -21,6 +21,68 @@ const IMAGES = {
   divider: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=85",
 };
 
+// ─── Hero Glass CTA — primary action over dark overlays ──────────────────────
+// Frosted glass with a shimmer sweep on hover, inspired by 21st.dev Subtle Button
+function HeroGlassButton({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={[
+        "group relative inline-flex cursor-pointer items-center justify-center overflow-hidden",
+        "border border-white/25 px-7 sm:px-10 py-3 sm:py-4",
+        "bg-white/10 backdrop-blur-md",
+        "text-xs tracking-[0.25em] uppercase font-medium text-white",
+        "transition-all duration-500 ease-out",
+        "hover:border-white/50 hover:bg-white/[0.18] hover:shadow-[0_0_30px_rgb(255_255_255_/_12%)]",
+        "active:scale-[0.97]",
+        // shimmer sweep
+        "before:absolute before:inset-0 before:-z-0",
+        "before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent",
+        "before:translate-x-[-150%]",
+        "before:transition-transform before:duration-700 before:ease-out",
+        "hover:before:translate-x-[150%]",
+      ].join(" ")}
+    >
+      <span className="relative z-10">{children}</span>
+    </Link>
+  );
+}
+
+// ─── Hero Ghost Link — secondary action over dark overlays ───────────────────
+function HeroGhostLink({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={[
+        "group relative inline-flex cursor-pointer items-center gap-2 py-3 sm:py-4",
+        "text-xs tracking-[0.25em] uppercase text-white/80",
+        "transition-all duration-300",
+        "hover:text-white",
+        "[text-shadow:_0_1px_6px_rgb(0_0_0_/_40%)]",
+      ].join(" ")}
+    >
+      {children}
+      {/* Underline that draws in from left */}
+      <span
+        aria-hidden
+        className="absolute bottom-2 left-0 h-px w-0 bg-white/60 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:w-full group-hover:bg-white"
+      />
+    </Link>
+  );
+}
+
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
@@ -33,29 +95,30 @@ function Hero() {
         className="object-cover object-center"
         sizes="100vw"
       />
-      {/* Light overlay — keeps the warm grey tone over the photo */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+      {/* Layered overlays — left gradient protects text, bottom gradient anchors layout */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-7xl w-full">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-accent mb-3 sm:mb-5">Fine Art Photography</p>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight text-foreground">
+          <p className="text-xs tracking-[0.45em] uppercase text-white/90 mb-3 sm:mb-5">Fine Art Photography</p>
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-none tracking-tight text-white [text-shadow:_0_2px_12px_rgb(0_0_0_/_40%)]">
             Light &amp;<br />
             <em className="italic">the spaces</em><br />
             between
           </h1>
-          <p className="mt-4 sm:mt-8 text-sm sm:text-base text-foreground/75 max-w-sm font-light leading-relaxed">
-            Landscapes and long exposures. The quiet moments most people walk past. Based in London, shooting everywhere.
+          <p className="mt-4 sm:mt-8 text-sm sm:text-base text-white/90 max-w-sm font-light leading-relaxed [text-shadow:_0_1px_8px_rgb(0_0_0_/_50%)]">
+            Capturing the quiet, long-exposure landscapes that most people walk past. Fine art photography based in London, available worldwide.
           </p>
-          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-            <ShutterButton href="#work">View the work</ShutterButton>
-            <LineButton href="/about" className="text-accent hover:text-foreground">About George →</LineButton>
+          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-5">
+            <HeroGlassButton href="#work">View the work</HeroGlassButton>
+            <HeroGhostLink href="/about">About George →</HeroGhostLink>
           </div>
         </div>
 
         <div className="mt-8 sm:mt-16 flex items-center gap-4">
-          <div className="h-px w-12 bg-border" />
-          <span className="text-xs tracking-[0.25em] uppercase text-accent">Scroll</span>
+          <div className="h-px w-12 bg-white/50" />
+          <span className="text-xs tracking-[0.25em] uppercase text-white/70 [text-shadow:_0_1px_6px_rgb(0_0_0_/_40%)]">Scroll</span>
         </div>
       </div>
     </section>
